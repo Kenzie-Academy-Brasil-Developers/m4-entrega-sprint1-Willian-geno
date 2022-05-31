@@ -9,15 +9,16 @@ import verifyEmail from "../middlewares/verifyEmail.middlewares";
 import verifyId from "../middlewares/verifyId.middlewares";
 import verifyLogin from "../middlewares/verifyLogin.middlewares";
 import verifyToken from "../middlewares/verifyToken.middlewares";
+import verifyAdim from "../middlewares/verifayAdim.middlewares";
 
 const router = Router()
 
 router.post("/",verifyEmail ,cretateUserController)
 router.post("/login", verifyLogin, userLoginController)
 router.get("/profile", verifyToken, listedUserController)
-router.get("/", verifyToken, listedAllUserControlles)
-router.patch("/:id", verifyToken, verifyId,  updadeUserController)
-router.delete("/:id", verifyToken, verifyId,  deleteUserController)
+router.get("/", verifyToken, verifyAdim, listedAllUserControlles)
+router.patch("/:id", verifyToken, verifyId, verifyAdim, updadeUserController)
+router.delete("/:id", verifyToken, verifyId, verifyAdim,  deleteUserController)
 
 
 

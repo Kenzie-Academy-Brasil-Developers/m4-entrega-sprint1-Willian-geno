@@ -5,6 +5,7 @@ const verifyId = (req, res, next) => {
 
     const user = users.find((item) => item.id === id)
 
+
     if (!user){
         return res.status(400).json({message:"Id não encontrado"})
     }
